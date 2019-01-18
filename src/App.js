@@ -1,12 +1,24 @@
 import React from "react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import MainScene from './scene/mainScene';
+import MainScene from './scene/mainscene/mainScene';
+import PlotScene from './scene/plotscene/plotScene';
 
+const MainStack = createStackNavigator({
+  'main':{
+    screen: MainScene,
+  },
+  'plot':{
+    screen: PlotScene,
+  },
+},
+{
+  headerMode:'none',
+});
 
 const AppNavigator = createStackNavigator({
-  'main': {
-    screen: MainScene,
+  'init': {
+    screen: MainStack,
   },  
 },
 {
