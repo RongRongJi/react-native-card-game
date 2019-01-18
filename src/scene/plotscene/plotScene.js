@@ -1,5 +1,5 @@
 /**
- * 主界面
+ * 剧情界面
  */
 
 import React, {Component} from 'react';
@@ -13,8 +13,8 @@ import {
     Dimensions,
     TouchableOpacity
 } from 'react-native';
-import Orientation from 'react-native-orientation';
-
+import Chapters from './component/chapters';
+import FootStep from './component/footstep';
 
 export default class PlotScene extends Component {
 
@@ -54,6 +54,15 @@ export default class PlotScene extends Component {
                 height:deviceWidth/21*1.5,
             }}
                 source={require('../../img/plot/剧情回顾.png')} />
+            <Chapters 
+                componentWidth={deviceWidth}
+                componentHeight={deviceHeight}
+                componentTop={deviceHeight/5}
+                componentLeft={10}/>
+            <FootStep
+                componentWidth={deviceWidth}
+                componentTop={deviceHeight/5*4}
+                componentLeft={deviceWidth/20}/>
         </ImageBackground>
         );
     }
