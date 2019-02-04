@@ -26,12 +26,13 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new OrientationPackage(),
-            new RNGestureHandlerPackage()
+            new RNGestureHandlerPackage(),
+              new MyReactPackage()
       );
     }
 
     @Override
-    protected String getJSMainModuleName() {
+   protected String getJSMainModuleName() {
       return "index";
     }
   };

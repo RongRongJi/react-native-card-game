@@ -7,6 +7,9 @@ import {
     View,
     Image,   
     TouchableOpacity,
+    NativeModules,
+    ToastAndroid,
+    TouchableNativeFeedback,
 } from 'react-native';
 import '../../../config/global.js'
 
@@ -17,6 +20,10 @@ export default class Buttons extends React.Component {
         
     }
 
+    _StartGame(){
+        var startHelper = NativeModules.startNew;
+        startHelper.startNewActivity("com.Activity.GameActivity");
+    }
     
     render() {
         return (
@@ -31,7 +38,8 @@ export default class Buttons extends React.Component {
                 position:'absolute',
                 left:this.props.componentWidth/4*3,
                 top:this.props.componentHeight/4,
-            }}>
+            }}
+                onPress={()=>this._StartGame()}>
                 <Image style={{
                     width: this.props.componentWidth/4,
                     height: this.props.componentHeight/4,

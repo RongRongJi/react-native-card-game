@@ -1,18 +1,20 @@
 package com.escape;
 
+import android.content.Intent;
 import android.os.Build;
 import android.view.View;
 
 import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactActivityDelegate;
 
-public class MainActivity extends ReactActivity {
+public class MainActivity extends ReactActivity implements StartNewActivity{
 
     /**
      * Returns the name of the main component registered from JavaScript.
      * This is used to schedule rendering of the component.
      */
     @Override
-    protected String getMainComponentName() {
+    public String getMainComponentName() {
         return "Escape";
     }
 
@@ -30,5 +32,17 @@ public class MainActivity extends ReactActivity {
                     | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
             );
         }
+    }
+
+    @Override
+    protected ReactActivityDelegate createReactActivityDelegate(){
+        return new MyReactActivityDelegate(this,getMainComponentName());
+    }
+
+    @Override
+    public void startNewActivity(String name){
+        Intent intent = new Intent(this,GameActivity.class);
+        intent.putExtra(GameActivity.NAME,name);
+        startActivity(intent);
     }
 }
