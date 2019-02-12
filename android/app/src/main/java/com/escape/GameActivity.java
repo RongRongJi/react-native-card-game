@@ -39,4 +39,18 @@ public class GameActivity extends ReactActivity implements  StartNewActivity {
         }
         return name;
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(GameActivity.this,GameTest.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+    }
 }

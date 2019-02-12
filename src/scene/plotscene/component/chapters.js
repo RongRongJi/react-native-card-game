@@ -31,6 +31,10 @@ export default class Chapters extends Component {
         }
         return array;
     }
+
+    inDialog(){
+        this.props.navigation.navigate('dialog');
+    }
     
     _getEven(num){
         if(global.currentChapter<num)
@@ -45,13 +49,17 @@ export default class Chapters extends Component {
                 source={require('../../../img/plot/锁定章节.png')}/>
             )
         else if(global.currentChapter>num)
-            return(
+            return(<TouchableOpacity key={num} onPress={()=>this.inDialog()}
+            style={{
+                position:'absolute',
+                width:this.props.componentWidth/4.2,
+                height:this.props.componentWidth/4.2,
+                top:0,
+                left:num/2*(this.props.componentWidth/4.2),
+            }}>
                 <ImageBackground key={num}  style={{
-                    position:'absolute',
                     width:this.props.componentWidth/4.2,
                     height:this.props.componentWidth/4.2,
-                    top:0,
-                    left:num/2*(this.props.componentWidth/4.2),
                 }}
                 source={num==0?require('../../../img/plot/chapter0.png')
                         :require('../../../img/plot/偶数章节（后篇已解锁）.png')}>
@@ -69,15 +77,22 @@ export default class Chapters extends Component {
                     {this._getNum(num)}
                     </View>
                 </ImageBackground>
+                </TouchableOpacity>
             )
         else if(global.currentChapter==num)
             return(
-                <ImageBackground key={num} style={{
+                <TouchableOpacity key={num}  onPress={()=>this.inDialog()}
+                style={{
                     position:'absolute',
                     width:this.props.componentWidth/4.2,
                     height:this.props.componentWidth/4.2,
                     top:0,
                     left:num/2*(this.props.componentWidth/4.2),
+                }}>
+                <ImageBackground key={num}
+                 style={{
+                    width:this.props.componentWidth/4.2,
+                    height:this.props.componentWidth/4.2,
                 }}
                 source={num==0?require('../../../img/plot/CHAPTER.0（后篇未解锁）.png')
                         :require('../../../img/plot/偶数章节（后篇未解锁）.png')}>
@@ -95,6 +110,7 @@ export default class Chapters extends Component {
                     {this._getNum(num)}
                     </View>
                 </ImageBackground>
+                </TouchableOpacity>
             )
     }
 
@@ -112,12 +128,17 @@ export default class Chapters extends Component {
             )
         else if(global.currentChapter>num)
             return(
-                <ImageBackground key={num} style={{
+                <TouchableOpacity key={num} onPress={()=>this.inDialog()}
+                style={{
                     position:'absolute',
                     width:this.props.componentWidth/4.2,
                     height:this.props.componentWidth/4.2,
                     top:this.props.componentWidth/8.4,
                     left:this.props.componentWidth/8.4+(num-1)/2*(this.props.componentWidth/4.2),
+                }}>
+                <ImageBackground key={num} style={{
+                    width:this.props.componentWidth/4.2,
+                    height:this.props.componentWidth/4.2,
                 }}
                 source={require('../../../img/plot/奇数章节（后篇已解锁）.png')}>
                     <View style={{
@@ -134,15 +155,21 @@ export default class Chapters extends Component {
                     {this._getNum(num)}
                     </View>
                 </ImageBackground>
+                </TouchableOpacity>
             )
         else if(global.currentChapter==num)
             return(
-                <ImageBackground key={num} style={{
+                <TouchableOpacity key={num} onPress={()=>this.inDialog()}
+                style={{
                     position:'absolute',
                     width:this.props.componentWidth/4.2,
                     height:this.props.componentWidth/4.2,
                     top:this.props.componentWidth/8.4,
                     left:this.props.componentWidth/8.4+(num-1)/2*(this.props.componentWidth/4.2),
+                }}>
+                <ImageBackground key={num} style={{
+                    width:this.props.componentWidth/4.2,
+                    height:this.props.componentWidth/4.2,
                 }}
                 source={require('../../../img/plot/奇数章节（后篇未解锁）.png')}>
                     <View style={{
@@ -159,6 +186,7 @@ export default class Chapters extends Component {
                     {this._getNum(num)}
                     </View>
                 </ImageBackground>
+                </TouchableOpacity>
             )
     }
 

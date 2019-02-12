@@ -3,6 +3,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import MainScene from './scene/mainscene/mainScene';
 import PlotScene from './scene/plotscene/plotScene';
+import DialogScene from './scene/dialog/dialog';
 
 const MainStack = createStackNavigator({
   'main':{
@@ -11,6 +12,9 @@ const MainStack = createStackNavigator({
   'plot':{
     screen: PlotScene,
   },
+  'dialog':{
+    screen: DialogScene,
+  }
 },
 {
   headerMode:'none',

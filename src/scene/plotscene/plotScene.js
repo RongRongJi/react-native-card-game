@@ -58,7 +58,8 @@ export default class PlotScene extends Component {
                 componentWidth={deviceWidth}
                 componentHeight={deviceHeight}
                 componentTop={deviceHeight/5}
-                componentLeft={10}/>
+                componentLeft={10}
+                navigation={this.props.navigation}/>
             <FootStep
                 componentWidth={deviceWidth}
                 componentTop={deviceHeight/5*4}
