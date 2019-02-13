@@ -50,7 +50,8 @@ export default class Buttons extends React.Component {
                 position:'absolute',
                 left:this.props.componentWidth/2,
                 top:this.props.componentHeight/2,
-            }}>
+            }}
+                onPress={()=>this.props.navigation.navigate('cardbag')}>
                 <Image style={{
                     width: this.props.componentWidth/2,
                     height: this.props.componentHeight/2,

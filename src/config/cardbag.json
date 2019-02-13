@@ -1,0 +1,41 @@
+{
+    "cardbag":[
+        {
+            "picture":"null",
+            "rare":"r",
+            "property":"火",
+            "content":"null"
+        },
+        {
+            "picture":"null",
+            "rare":"r",
+            "property":"雷",
+            "content":"null"
+        },
+        {
+            "picture":"null",
+            "rare":"sr",
+            "property":"水",
+            "content":"null"
+        },
+        {
+            "picture":"null",
+            "rare":"ssr",
+            "property":"火",
+            "content":"null"
+        },
+        {
+            "picture":"null",
+            "rare":"r",
+            "property":"中性",
+            "content":"null"
+        },
+        {
+            "picture":"null",
+            "rare":"n",
+            "property":"火",
+            "content":"null"
+        }
+
+    ]
+}

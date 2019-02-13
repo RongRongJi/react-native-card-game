@@ -4,6 +4,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import MainScene from './scene/mainscene/mainScene';
 import PlotScene from './scene/plotscene/plotScene';
 import DialogScene from './scene/dialog/dialog';
+import CardBagScene from './scene/cardscene/cardbag';
 
 const MainStack = createStackNavigator({
   'main':{
@@ -14,7 +15,10 @@ const MainStack = createStackNavigator({
   },
   'dialog':{
     screen: DialogScene,
-  }
+  },
+  'cardbag':{
+    screen: CardBagScene,
+  },
 },
 {
   headerMode:'none',
