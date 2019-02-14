@@ -61,7 +61,7 @@ public class GameTest extends Engine {
 
     @Override
     public void init() {
-        super.setScreenOrientation(ScreenMode.PORTRAIT);
+        super.setScreenOrientation(ScreenMode.LANDSCAPE);
         UIdefaultData.init(this);
     }
 
@@ -124,71 +124,15 @@ public class GameTest extends Engine {
 
     @Override
     public void update() {
-        if (timer.stopWatch(20)) {
-            scrollBackground();
-        }
+
         if (ship.getFixedAnimation("start").animating) {
             ship.fixedAnimation("start");
-        } else {
-            fireBullet();
-//            int size = getTypeSizeFromRecycleGroup(ENEMY);
-//            if (size > 0)
-//                enemyNum -= size;
-            if (enemyTimer.stopWatch(200)) {
-                addEnemy();
-            }
         }
     }
 
-    public void fireBullet() {
-        if (!shoottimer.stopWatch(300)) return;
-        BaseSprite bullet;
-        if (getTypeSizeFromRecycleGroup(BULLET) > 0) {
-            bullet = (BaseSprite) recycleSubFromGroup(BULLET);
-            bullet.clearAllAnimation();
-            removeFromRecycleGroup(bullet);
-        } else {
-            bullet = new BaseSprite(this);
-            bullet.setTexture(shoot);
-            bullet.setDipScale(8, 18);
-            bullet.setIdentifier(BULLET);
-        }
-        double angle = 270.0;
-        float speed = 20.0f;
-        int lifetime = 2500;
-        bullet.addAnimation(new VelocityAnimation(angle, speed,
-                lifetime));
-        bullet.setPosition(ship.s_position.x +
-                        ship.getWidthWithScale() / 2
-                        - bullet.getWidthWithScale() / 2,
-                ship.s_position.y - 24);
-        bullet.setAlive(true);
-        addToSpriteGroup(bullet);
-    }
 
-    private void addEnemy() {
-        BaseSprite enemy;
-        if (getTypeSizeFromRecycleGroup(ENEMY) > 0) {
-            enemy = (BaseSprite) recycleSubFromGroup(ENEMY);
-            enemy.clearAllAnimation();
-            removeFromRecycleGroup(enemy);
-        } else {
-            enemy = new BaseSprite(this);
-            enemy.setTexture(enemyPic);
-            enemy.setIdentifier(ENEMY);
-            enemy.setDipScale(49, 36);
-        }
-        double angle = 90.0;
-        float speed = 5.0f;
-        int lifetime = 5000;
-        enemy.addAnimation(new VelocityAnimation(angle, speed,
-                lifetime));
-        enemy.setPosition(random.nextInt(UIdefaultData.screenWidth),
-                -enemy.getWidthWithScale());
-        enemy.setAlive(true);
-        addToSpriteGroup(enemy);
-        enemyNum++;
-    }
+
+
 
     @Override
     public void touch(MotionEvent event) {
@@ -236,13 +180,6 @@ public class GameTest extends Engine {
         startY = (int) event.getY();
     }
 
-    public void scrollBackground() {
-        bg_scroll.y += 10.0f;
-        bg_rect.top = bg_scroll.y;
-        bg_rect.bottom = bg_rect.top + UIdefaultData.screenHeight - 1;
-        if (bg_scroll.y + bg_rect.height() > backGround2X.getHeight()) {
-            bg_scroll.y = bg_scroll.y - bg_rect.height();
-        }
-    }
+
 
 }
